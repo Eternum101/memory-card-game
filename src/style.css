@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    color: white;
+    background-color: rgb(63, 63, 63);
+}
+
+.background-video {
+    filter: brightness(70%);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: fixed;
+    object-fit: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    gap: 50px;
+    padding: 20px 30px 0px;
+}
+
+header img {
+    width: 200px;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.scores-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow:0px 0px 10px 4px rgba(255,119,0,0.9);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(255,119,0,0.9);
+    box-shadow: 0px 0px 10px 4px rgba(255,119,0,0.9);
+}
+
+.scores-container h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgb(255, 136, 0);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    -webkit-box-shadow:0px 0px 10px 4px rgba(255,119,0,0.9);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(255,119,0,0.9);
+    box-shadow: 0px 0px 10px 4px rgba(255,119,0,0.9);
+}
+
+.scores-container h2 {
+    font-size: 1.2rem;
+}
+
+.level-count-container, 
+.score-count-container,
+.bestscore-count-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.gameboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.card {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.card-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    background-color: rgb(59, 59, 59);
+    border-radius: 50px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.image-container img {
+    border-radius: 50px;
+    max-width: 220px;
+    height: 250px;
+}
+
