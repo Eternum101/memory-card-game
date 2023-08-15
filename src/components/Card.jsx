@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
-const Card = ({ characterData }) => {
+const Card = ({ characterData, onCardClick }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleCardClick = () => {
-        setIsFlipped(!isFlipped);
+        if (!isFlipped) {
+            setIsFlipped(true);
+            onCardClick(characterData);
+        }
     };
 
     return (
