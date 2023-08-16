@@ -5,6 +5,8 @@ import catnip from '../assets/img/characters/catnip.webp';
 import skeleton from '../assets/img/characters/skeleton.webp';
 import walrus from '../assets/img/characters/walrus.webp';
 import willie from '../assets/img/characters/willie.webp';
+import horse from '../assets/img/characters/horse.webp';
+import pig from '../assets/img/characters/pig.webp';
 
 const characters = [
     {
@@ -41,6 +43,18 @@ const characters = [
         id: uniqid(),
         name: 'Steam Boat Willie',
         src: willie,
+        clicked: false,
+    },
+    {
+        id: uniqid(),
+        name: 'Horace Horsecollar',
+        src: horse,
+        clicked: false,
+    },
+    {
+        id: uniqid(),
+        name: 'Patricia Pigg',
+        src: pig,
         clicked: false,
     },
 ];

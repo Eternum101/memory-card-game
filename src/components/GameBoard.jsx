@@ -11,50 +11,61 @@ function shuffle(array) {
   return shuffledArray;
 }
 
-const GameBoard = ({ level, setLevel, score, setScore, maxScorePerLevel, maxLevels }) => {
-    const [cards, setCards] = useState([]);
-    const [flippedCards, setFlippedCards] = useState([]);
+function getCardCount(difficulty) {
+  if (difficulty === 'Easy') return 4;
+  if (difficulty === 'Medium') return 6;
+  if (difficulty === 'Hard') return 8;
+  return 0; // Default value in case of unexpected difficulty
+}
+
+const GameBoard = ({ level, setLevel, score, setScore, maxScorePerLevel, maxLevels, selectedDifficulty }) => {
+  const [cards, setCards] = useState([]);
+  const [previousCard, setPreviousCard] = useState(null);
+
+  useEffect(() => {
+    console.log("Selected Difficulty:", selectedDifficulty);
     
-    useEffect(() => {
-      const shuffledCharacters = shuffle([...characters]);
-      setCards(shuffledCharacters);
-      setFlippedCards([]);
-    }, [level]);
-  
-    const handleCardClick = (clickedCharacter) => {
-      if (flippedCards.length === 0) {
-        setFlippedCards([clickedCharacter]);
-        setCards(shuffle(cards));
-      } else if (flippedCards.length === 1) {
-        if (flippedCards[0].id !== clickedCharacter.id) {
-          setFlippedCards([]);
-          setScore(score + 1);
-        } else {
-          setFlippedCards([]);
-          if (score + 1 >= maxScorePerLevel) {
-            if (level === maxLevels) {
-              // Handle game completion or victory
-            } else {
-              setLevel(level + 1);
-              setScore(0);
-            }
+    const shuffledCharacters = shuffle([...characters]);
+    const cardCount = getCardCount(selectedDifficulty);
+    console.log("Card Count:", cardCount); // Log the card count
+    
+    setCards(shuffledCharacters.slice(0, cardCount));
+    setPreviousCard(null);
+  }, [level, selectedDifficulty]);
+
+  const handleCardClick = (clickedCharacter) => {
+    if (previousCard === null) {
+      setPreviousCard(clickedCharacter);
+    } else {
+      if (previousCard.id !== clickedCharacter.id) {
+        setPreviousCard(null);
+        setScore(score + 1);
+      } else {
+        setPreviousCard(null);
+        if (score + 1 >= maxScorePerLevel) {
+          if (level === maxLevels) {
+            // Handle game completion or victory
+          } else {
+            setLevel(level + 1);
+            setScore(0);
           }
         }
       }
-    };
-  
-    return (
-      <div className="gameboard-container">
-        {cards.map((characterData) => (
-          <Card
-            key={characterData.id}
-            characterData={characterData}
-            onCardClick={handleCardClick}
-            flippedCards={flippedCards}
-          />
-        ))}
-      </div>
-    );
+    }
+    setCards(shuffle(cards));
   };
+
+  return (
+    <div className="gameboard-container">
+      {cards.map((characterData) => (
+        <Card
+          key={characterData.id}
+          characterData={characterData}
+          onCardClick={handleCardClick}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default GameBoard;
