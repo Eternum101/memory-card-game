@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import characters from "./characters";
+import Modal from "./Modal";
 
 function getCardCount(difficulty) {
   if (difficulty === 'Easy') return 3;
@@ -12,6 +13,8 @@ function getCardCount(difficulty) {
 const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => {
   const [cards, setCards] = useState([]);
   const [chosenCards, setChosenCards] = useState(new Set());
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [isWin, setIsWin] = useState(false);
 
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
@@ -30,7 +33,7 @@ const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => 
 
   const handleCardClick = (clickedCharacter) => {
     if (chosenCards.has(clickedCharacter.id)) {
-      console.log("Game Over");
+      setIsGameOver(true);
       return;
     }
   
@@ -56,16 +59,21 @@ const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => 
     setCards(selectedCharacters);  
 
     if (selectedDifficulty === 'Easy' && level === 4) {
-      console.log("You win in Easy mode!");
+      setIsWin(true);
       return;
     } else if (selectedDifficulty === 'Medium' && level === 6) {
-      console.log("You win in Medium mode!");
+      setIsWin(true);
       return;
     } else if (selectedDifficulty === 'Hard' && level === 9) {
-      console.log("You win in Hard mode!");
+      setIsWin(true);
       return;
     }
-  };  
+  };
+  
+  const closeModal = () => {
+    setIsGameOver(false);
+    setIsWin(false);
+  }
   
   return (
     <div className="gameboard-container">
@@ -76,6 +84,8 @@ const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => 
           onCardClick={() => handleCardClick(characterData)}
         />
       ))}
+      <Modal isOpen={isGameOver} closeModal={closeModal} content={"Game Over! You've Selected a Previously Chosen Card"}/>
+      <Modal isOpen={isWin} closeModal={closeModal} content={"Congratulations! You've Completed the Game!"}/>
     </div>
   );
 };
