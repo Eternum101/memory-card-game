@@ -5,18 +5,14 @@ import SplashScreen from './components/SplashScreen';
 
 function App() {
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
-  const [level, setLevel] = useState(1);
+  const [level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
 
   const handleDifficultySelect = (difficulty) => {
-    console.log("Selected Difficulty:", difficulty);
     setSelectedDifficulty(difficulty);
-    setLevel(1); // Reset level when difficulty changes
-    setScore(0); // Reset score when difficulty changes
-};
-
-  const maxScorePerLevel = 7;
-  const maxLevels = 5;
+    setLevel(0);
+    setScore(0);
+  };
 
   const showSplashScreen = selectedDifficulty === null;
 
@@ -36,8 +32,6 @@ function App() {
           setLevel={setLevel}
           score={score}
           setScore={setScore}
-          maxScorePerLevel={maxScorePerLevel}
-          maxLevels={maxLevels}
           selectedDifficulty={selectedDifficulty}
         />
       )}

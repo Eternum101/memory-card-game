@@ -10,8 +10,6 @@ const Content = ({ level, setLevel, score, setScore, maxScorePerLevel, maxLevels
                     setLevel={setLevel}
                     score={score}
                     setScore={setScore}
-                    maxScorePerLevel={maxScorePerLevel}
-                    maxLevels={maxLevels}
                     selectedDifficulty={selectedDifficulty}
                 />
         </div>

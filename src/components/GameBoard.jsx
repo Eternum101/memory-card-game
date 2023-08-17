@@ -2,66 +2,78 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import characters from "./characters";
 
-function shuffle(array) {
-  const shuffledArray = [...array];
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-  }
-  return shuffledArray;
-}
-
 function getCardCount(difficulty) {
-  if (difficulty === 'Easy') return 4;
-  if (difficulty === 'Medium') return 6;
-  if (difficulty === 'Hard') return 8;
-  return 0; // Default value in case of unexpected difficulty
+  if (difficulty === 'Easy') return 3;
+  if (difficulty === 'Medium') return 4;
+  if (difficulty === 'Hard') return 5;
+  return 0;
 }
 
-const GameBoard = ({ level, setLevel, score, setScore, maxScorePerLevel, maxLevels, selectedDifficulty }) => {
+const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => {
   const [cards, setCards] = useState([]);
-  const [previousCard, setPreviousCard] = useState(null);
+  const [chosenCards, setChosenCards] = useState(new Set());
 
-  useEffect(() => {
-    console.log("Selected Difficulty:", selectedDifficulty);
-    
-    const shuffledCharacters = shuffle([...characters]);
-    const cardCount = getCardCount(selectedDifficulty);
-    console.log("Card Count:", cardCount); // Log the card count
-    
-    setCards(shuffledCharacters.slice(0, cardCount));
-    setPreviousCard(null);
-  }, [level, selectedDifficulty]);
-
-  const handleCardClick = (clickedCharacter) => {
-    if (previousCard === null) {
-      setPreviousCard(clickedCharacter);
-    } else {
-      if (previousCard.id !== clickedCharacter.id) {
-        setPreviousCard(null);
-        setScore(score + 1);
-      } else {
-        setPreviousCard(null);
-        if (score + 1 >= maxScorePerLevel) {
-          if (level === maxLevels) {
-            // Handle game completion or victory
-          } else {
-            setLevel(level + 1);
-            setScore(0);
-          }
-        }
-      }
+  const shuffleArray = (array) => {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
-    setCards(shuffle(cards));
+    return shuffledArray;
   };
 
+  useEffect(() => {
+    const cardCount = getCardCount(selectedDifficulty);
+    const shuffledCharacters = shuffleArray(characters).slice(0, cardCount);
+    setCards(shuffledCharacters);
+  }, [selectedDifficulty, level]);
+
+  const handleCardClick = (clickedCharacter) => {
+    if (chosenCards.has(clickedCharacter.id)) {
+      console.log("Game Over");
+      return;
+    }
+  
+    const newChosenCards = new Set(chosenCards);
+    newChosenCards.add(clickedCharacter.id);
+    setChosenCards(newChosenCards);
+  
+    if (!chosenCards.has(clickedCharacter.id)) {
+      if (selectedDifficulty === 'Easy' && level < 5) {
+        setLevel(level + 1);
+      } else if (selectedDifficulty === 'Medium' && level < 7) {
+        setLevel(level + 1);
+      } else if (selectedDifficulty === 'Hard' && level < 10) {
+        setLevel(level + 1);
+      }
+    }
+  
+    setScore(score + 1);
+  
+    const cardCount = getCardCount(selectedDifficulty);
+    const shuffledCharacters = shuffleArray(characters);
+    const selectedCharacters = shuffledCharacters.slice(0, cardCount);
+    setCards(selectedCharacters);  
+
+    if (selectedDifficulty === 'Easy' && level === 4) {
+      console.log("You win in Easy mode!");
+      return;
+    } else if (selectedDifficulty === 'Medium' && level === 6) {
+      console.log("You win in Medium mode!");
+      return;
+    } else if (selectedDifficulty === 'Hard' && level === 9) {
+      console.log("You win in Hard mode!");
+      return;
+    }
+  };  
+  
   return (
     <div className="gameboard-container">
       {cards.map((characterData) => (
         <Card
           key={characterData.id}
           characterData={characterData}
-          onCardClick={handleCardClick}
+          onCardClick={() => handleCardClick(characterData)}
         />
       ))}
     </div>
