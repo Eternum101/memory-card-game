@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 
 :root {
     --primary-colour: rgb(59, 59, 59);
     --secondary-colour: #ff7700;
+    --modal-win: #007FFF;
+    --modal-lose: #d41515;
 }
-
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Carter One', cursive;
 }
 
 .splash-screen {
@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.315);
 }
 
 .splash-screen h1 {
@@ -27,7 +28,6 @@
     font-size: 3.2rem;
     font-weight: bold;
     text-shadow: rgb(0, 0, 0) 5px 0 10px;
-    font-family: 'Carter One', cursive;
 }
 
 .logo {
@@ -41,7 +41,6 @@
 }
 
 .splash-button-container button {
-    font-family: 'Carter One', cursive;
     padding: 10px 20px;
     background-color: #ff7700;
     color: #fff;
@@ -84,6 +83,12 @@ header {
 
 header img {
     width: 200px;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+}
+
+header img:hover {
+    transform: scale(1.1);
 }
 
 .content {
@@ -159,7 +164,7 @@ header img {
     transform-style: preserve-3d;
     background-color: rgb(59, 59, 59);
     border-radius: 50px;
-    padding: 10px;
+    padding: 12px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -172,7 +177,7 @@ header img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -201,27 +206,32 @@ header img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--primary-colour);
     border-radius: 8px;
-    padding: 100px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+    box-shadow: 0px 0px 20px rgb(2, 2, 2);
+    width: 700px;
+    aspect-ratio: 1.82/1;
+    gap: 180px;
+  }
+
+  .modal h2 {
+    border-radius: 10px;
+    font-size: 2rem;
+    padding: 5px 30px;
   }
   
   .modal-content {
     font-size: 18px;
     text-align: center;
-    margin-bottom: 20px;
   }
   
   .modal-restart-button {
     background-color: var(--secondary-colour);
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
+    border-radius: 20px;
+    padding: 5px 20px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transition: transform 200ms ease-in-out;
     margin-top: 50px;
   }

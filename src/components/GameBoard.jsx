@@ -69,10 +69,20 @@ const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => 
       return;
     }
   };
+
+  const resetGame = () => {
+    setLevel(0);
+    setScore(0);
+    setChosenCards(new Set());
+    const cardCount = getCardCount(selectedDifficulty);
+    const shuffledCharacters = shuffleArray(characters).slice(0, cardCount);
+    setCards(shuffledCharacters);
+  }
   
   const closeModal = () => {
     setIsGameOver(false);
     setIsWin(false);
+    resetGame();
   }
   
   return (
@@ -84,8 +94,13 @@ const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => 
           onCardClick={() => handleCardClick(characterData)}
         />
       ))}
-      <Modal isOpen={isGameOver} closeModal={closeModal} content={"Game Over! You've Selected a Previously Chosen Card"}/>
-      <Modal isOpen={isWin} closeModal={closeModal} content={"Congratulations! You've Completed the Game!"}/>
+      <Modal
+          isOpen={isGameOver || isWin}
+          closeModal={closeModal}
+          content={isWin ? "You Win!" : "Game Over"}
+          modalColor={isWin ? "#007FFF" : "#d41515"}
+          isWin={isWin}
+      />
     </div>
   );
 };
