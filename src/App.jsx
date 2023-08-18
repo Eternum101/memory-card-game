@@ -7,6 +7,7 @@ function App() {
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
   const [level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const handleDifficultySelect = (difficulty) => {
     setSelectedDifficulty(difficulty);
@@ -28,7 +29,7 @@ function App() {
         <source src='Mickey Mouse Background.mp4' type='video/mp4'/>
       </video>
       {!showSplashScreen && (
-        <Header level={level} score={score} bestScore={10} onLogoClick={handleLogoClick} />
+        <Header level={level} score={score} bestScore={bestScore} onLogoClick={handleLogoClick} />
       )}
       {showSplashScreen ? (
         <SplashScreen handleDifficultySelect={handleDifficultySelect} />

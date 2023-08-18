@@ -177,7 +177,7 @@ header img:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -239,4 +239,93 @@ header img:hover {
   .modal-restart-button:hover {
     transform: scale(1.1);
   }
+
+@media (max-width: 600px) {
+    .splash-screen h1 {
+        font-size: 2rem;
+    }
+  
+    .logo {
+        width: 250px;
+    }
+  
+    .splash-button-container {
+        gap: 10px;
+        margin-top: 20px;
+    }
+  
+    .splash-button-container button {
+        padding: 5px 10px;
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+  
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+    }
+  
+    header img {
+        width: 150px;
+    }
+  
+    .scores-container {
+        gap: 20px;
+        padding: 20px;
+    }
+  
+    .scores-container h1 {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+  
+    .scores-container h2 {
+        font-size: 1.2rem;
+    }
+  
+    .gameboard-container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+  
+    .card {
+        padding: 10px;
+    }
+  
+    .card-inner {
+        padding: 13px;
+    }
+
+    .image-container {
+        font-size: 1rem;
+    }
+  
+    .image-container img {
+        max-width: 160px;
+        height: 180px;
+    }
+  
+    .modal {
+        width: 90%; /* Adjust as needed */
+        gap: 30px;
+    }
+  
+    .modal h2 {
+        font-size: 1.5rem;
+        padding: 5px 15px;
+    }
+  
+    .modal-content {
+        font-size: 16px;
+    }
+  
+    .modal-restart-button {
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+}
+
 
