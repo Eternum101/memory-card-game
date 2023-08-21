@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GameBoard from "./GameBoard";
 
-const Content = ({ level, setLevel, score, setScore, maxScorePerLevel, maxLevels, selectedDifficulty }) => {
+const Content = ({ level, setLevel, score, setScore, selectedDifficulty, bestScore, setBestScore }) => {
 
     return (
         <div className="content">
@@ -11,6 +11,8 @@ const Content = ({ level, setLevel, score, setScore, maxScorePerLevel, maxLevels
                     score={score}
                     setScore={setScore}
                     selectedDifficulty={selectedDifficulty}
+                    bestScore={bestScore}
+                    setBestScore={setBestScore}
                 />
         </div>
     );

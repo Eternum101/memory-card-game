@@ -8,7 +8,7 @@ function App() {
   const [level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-
+  
   const handleDifficultySelect = (difficulty) => {
     setSelectedDifficulty(difficulty);
     setLevel(0);
@@ -40,6 +40,8 @@ function App() {
           score={score}
           setScore={setScore}
           selectedDifficulty={selectedDifficulty}
+          bestScore={bestScore}
+          setBestScore={setBestScore}
         />
       )}
     </>

@@ -7,6 +7,8 @@ import walrus from '../assets/img/characters/walrus.webp';
 import willie from '../assets/img/characters/willie.webp';
 import horse from '../assets/img/characters/horse.webp';
 import pig from '../assets/img/characters/pig.webp';
+import cow from '../assets/img/characters/cow.webp';
+import parrot from '../assets/img/characters/parrot.webp';
 
 const characters = [
     {
@@ -55,6 +57,18 @@ const characters = [
         id: uniqid(),
         name: 'Patricia Pigg',
         src: pig,
+        clicked: false,
+    },
+    {
+        id: uniqid(),
+        name: 'Caroline Cow',
+        src: cow,
+        clicked: false,
+    },
+    {
+        id: uniqid(),
+        name: 'Parrot',
+        src: parrot,
         clicked: false,
     },
 ];

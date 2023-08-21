@@ -10,7 +10,7 @@ function getCardCount(difficulty) {
   return 0;
 }
 
-const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => {
+const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty, bestScore, setBestScore }) => {
   const [cards, setCards] = useState([]);
   const [chosenCards, setChosenCards] = useState(new Set());
   const [isGameOver, setIsGameOver] = useState(false);
@@ -52,6 +52,10 @@ const GameBoard = ({ level, setLevel, score, setScore, selectedDifficulty }) => 
     }
   
     setScore(score + 1);
+
+    if (score >= bestScore) {
+      setBestScore(bestScore + 1)
+    }
   
     const cardCount = getCardCount(selectedDifficulty);
     const shuffledCharacters = shuffleArray(characters);
