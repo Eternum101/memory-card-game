@@ -14,6 +14,7 @@
     font-family: 'Carter One', cursive;
 }
 
+/* Splash Screen Styling */
 .splash-screen {
     display: flex;
     flex-direction: column;
@@ -60,6 +61,7 @@ body {
     color: white;
 }
 
+/* Background Video Styling */
 .background-video {
     top: 0;
     left: 0;
@@ -71,6 +73,7 @@ body {
     filter: brightness(80%);
 }
 
+/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
@@ -90,10 +93,12 @@ header img:hover {
     transform: scale(1.1);
 }
 
+/* Content Styling */
 .content {
     margin-top: 10px;
 }
 
+/* Scores Container Styling */
 .scores-container {
     display: flex;
     justify-content: center;
@@ -135,6 +140,7 @@ header img:hover {
     gap: 8px;
 }
 
+/* Gameboard Styling */
 .gameboard-container {
     display: flex;
     flex-wrap: wrap;
@@ -145,6 +151,7 @@ header img:hover {
     width: 100%;
 }
 
+/* Card Styling */
 .card {
     padding: 15px;
     cursor: pointer;
@@ -183,6 +190,7 @@ header img:hover {
     height: 250px;
 }
 
+/* Modal Styling */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -196,7 +204,7 @@ header img:hover {
     z-index: 1000;
   }
   
-  .modal {
+.modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -206,20 +214,20 @@ header img:hover {
     width: 700px;
     aspect-ratio: 1.82/1;
     gap: 180px;
-  }
+}
 
-  .modal h2 {
+.modal h2 {
     border-radius: 10px;
     font-size: 2rem;
     padding: 5px 30px;
-  }
+}
   
-  .modal-content {
+.modal-content {
     font-size: 18px;
     text-align: center;
-  }
+}
   
-  .modal-restart-button {
+.modal-restart-button {
     background-color: var(--secondary-colour);
     color: white;
     border: none;
@@ -229,12 +237,13 @@ header img:hover {
     font-size: 1.5rem;
     transition: transform 200ms ease-in-out;
     margin-top: 50px;
-  }
+}
   
-  .modal-restart-button:hover {
+.modal-restart-button:hover {
     transform: scale(1.1);
-  }
+}
 
+/* Media Styling */
 @media (max-width: 600px) {
     .splash-screen h1 {
         font-size: 2rem;

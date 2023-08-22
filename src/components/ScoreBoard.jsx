@@ -1,6 +1,9 @@
+// Import React
 import React from "react";
 
 const ScoreBoard = ({level, score, bestScore}) => {
+
+    // JSX code to display score board
     return (
     <div className="scores-container">
         <div className="level-count-container">

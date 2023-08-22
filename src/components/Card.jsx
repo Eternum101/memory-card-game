@@ -1,8 +1,12 @@
+// Import React
 import React, { useState } from "react";
 
 const Card = ({ characterData, onCardClick }) => {
+
+    // Defines state variable isFlipped
     const [isFlipped, setIsFlipped] = useState(false);
 
+    // Toggles the isFlipped state when a card is clicked
     const handleCardClick = () => {
         if (!isFlipped) {
             setIsFlipped(true);
@@ -10,6 +14,7 @@ const Card = ({ characterData, onCardClick }) => {
         }
     };
 
+    // JSX code to display cards
     return (
         <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
             <div className="card-inner">

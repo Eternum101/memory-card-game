@@ -1,7 +1,10 @@
+// Import React & logoImage
 import React from "react";
 import logoImage from "../assets/img/logo.png";
 
 const SplashScreen = ({ handleDifficultySelect }) => {
+
+    // JSX code to display splash screen
     return (
         <div className="splash-screen">
             <img src={logoImage} alt="Logo" className="logo"></img>

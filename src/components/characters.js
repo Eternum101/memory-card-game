@@ -1,3 +1,4 @@
+// Import uniqid & Character Images
 import uniqid from 'uniqid';
 import mickey from '../assets/img/characters/mickey.webp';
 import minnie from '../assets/img/characters/minnie.webp';
@@ -10,6 +11,7 @@ import pig from '../assets/img/characters/pig.webp';
 import cow from '../assets/img/characters/cow.webp';
 import parrot from '../assets/img/characters/parrot.webp';
 
+// Characters array that represents id, name, src and clicked
 const characters = [
     {
         id: uniqid(),

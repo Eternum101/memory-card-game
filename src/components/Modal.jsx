@@ -1,7 +1,10 @@
+// Import React, gameOverImage & winImage
 import React from "react";
 import gameOverImage from "../assets/img/gameover.webp";
 import winImage from "../assets/img/win.webp";
 
+// Generates styles and appearance based on provided props, showing a modal
+// with custom header and background if open else return null to hide it
 const Modal = ({ isOpen, closeModal, content, modalColor, isWin }) => {
     if (!isOpen) return null;
 
@@ -14,6 +17,7 @@ const Modal = ({ isOpen, closeModal, content, modalColor, isWin }) => {
         backgroundPosition: "center",
     };
 
+    // JSX code to display modal
     return (
         <div className="modal-overlay">
             <div className="modal" style={ modalStyle }>
