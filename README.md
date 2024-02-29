@@ -1,8 +1,49 @@
-# React + Vite
+# Memory Card Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+View Demo
 
-Currently, two official plugins are available:
+## Table of Contents
+- [About The Project](#about-the-project)
+- [Built With](#built-with)
+- [Screenshots](#screenshots)
+- [Features](#features)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About The Project
+A Micky Mouse Themed Memory Card Game. 
+
+## Screenshots
+
+### All Tasks Filter
+![](screenshots/all-tasks-to-do-list.png)
+
+### Todays Tasks Filter
+![](screenshots/todays-tasks-to-do-list.png)
+
+### This Weeks Tasks Filter
+![](screenshots/this-weeks-tasks-to-do-list.png)
+
+### Projects Tasks Filter
+![](screenshots/projects-tasks-to-do-list.png)
+
+[Back to Top](#memory-card-game)
+
+## Built With
+- HTML
+- CSS
+- JavaScript
+- Webpack
+- React
+- Node
+
+[Back to Top](#memory-card-game)
+
+## Features
+
+- Mickey Mouse Themed
+- Three Levels of Difficulty
+- Randomly Generated Cards for Each Level/Round
+- Counting System for Level, Score & Best Score
+- Best Score Shows Highest Score Across All Levels of Difficulty
+- Ability to Restart After Win/Loss
+
+[Back to Top](#memory-card-game)
