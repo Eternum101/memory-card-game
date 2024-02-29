@@ -13,17 +13,17 @@ A Micky Mouse Themed Memory Card Game.
 
 ## Screenshots
 
-### All Tasks Filter
-![](screenshots/all-tasks-to-do-list.png)
+### Splash Screen
+![](screenshots/splash-screen-memory-card-game.png)
 
-### Todays Tasks Filter
-![](screenshots/todays-tasks-to-do-list.png)
+### Easy, Medium & Hard Difficulty
+![](screenshots/easy-difficulty-memory-card-game.png)
+![](screenshots/medium-difficulty-memory-card-game.png)
+![](screenshots/hard-difficulty-memory-card-game.png)
 
-### This Weeks Tasks Filter
-![](screenshots/this-weeks-tasks-to-do-list.png)
-
-### Projects Tasks Filter
-![](screenshots/projects-tasks-to-do-list.png)
+### Winning & Losing Popup
+![](screenshots/winning-screen-memory-card-game.png)
+![](screenshots/losing-screen-memory-card-game.png)
 
 [Back to Top](#memory-card-game)
 
