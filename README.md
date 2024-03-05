@@ -1,6 +1,6 @@
 # Memory Card Game
 
-View Demo
+🔗 [View Demo](https://brayden-memory-card-game.netlify.app/)
 
 ## Table of Contents
 - [About The Project](#about-the-project)
