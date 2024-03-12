@@ -40,6 +40,8 @@ A Micky Mouse Themed Memory Card Game.
 
 ![image](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
+![image](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+
 [Back to Top](#memory-card-game)
 
 ## Features
